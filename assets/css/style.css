@@ -500,9 +500,10 @@ section {
   margin: 0;
   text-transform: uppercase;
   display: block;
-  font-weight: 600;
+  font-weight: 100;
   font-family: "Poppins", sans-serif;
   color: #45505b;
+  font-size: 20px;
 }
 
 .skills .progress .skill .val {
@@ -1226,4 +1227,9 @@ section {
 
 #footer .credits {
   font-size: 13px;
+}
+
+.star-icon{
+  font-size: 25px;
+  color: #0563bb;
 }
