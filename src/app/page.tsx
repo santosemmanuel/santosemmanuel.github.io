@@ -20,26 +20,26 @@ export default function Home() {
     }
   }, [darkMode, mounted]);
 
-useEffect(() => {
-  const handleScroll = () => {
-    const navbar = document.querySelector("nav");
-    if (!navbar) return; // Ensure navbar exists
+  useEffect(() => {
+    const handleScroll = () => {
+      const navbar = document.querySelector("nav");
+      if (!navbar) return;
 
-    const navbarHeight = navbar.offsetHeight;
-    const scrollPosition = window.scrollY;
-    setIsSticky(scrollPosition >= navbarHeight);
+      const navbarHeight = navbar.offsetHeight;
+      const scrollPosition = window.scrollY;
+      setIsSticky(scrollPosition >= navbarHeight);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToAbout = () => {
+    const aboutSection = document.getElementById("about");
+    if (aboutSection) {
+      aboutSection.scrollIntoView({ behavior: "smooth" });
+    }
   };
-
-  window.addEventListener("scroll", handleScroll);
-  return () => window.removeEventListener("scroll", handleScroll);
-}, []);
-
-const scrollToAbout = () => {
-  const aboutSection = document.getElementById("about");
-  if (aboutSection) {
-    aboutSection.scrollIntoView({ behavior: "smooth" });
-  }
-};
 
   if (!mounted) {
     return null;
@@ -61,7 +61,11 @@ const scrollToAbout = () => {
               : "absolute top-0 left-1/2 transform -translate-x-1/2 w-full"
           }`}
         >
-          <h1 className="font-Inter text-xl">Emmanuel Santos III</h1>
+          <a href="#hero" className="cursor-pointer">
+            <h1 className="font-Inter text-xl hover:text-blue-500 transition-colors duration-300">
+              Emmanuel Santos III
+            </h1>
+          </a>
           <ul className="flex space-x-6 items-center mx-auto">
             <li>
               <a href="#resume" className="font-sourceCode">
@@ -101,7 +105,7 @@ const scrollToAbout = () => {
         </nav>
 
         {/* Hero Section */}
-        <main>
+        <main id="hero">
           <section className="min-h-screen pt-20">
             <div className="text-center p-10">
               <h2 className="font-poppins text-5xl py-2 font-medium pt-20">
@@ -125,24 +129,25 @@ const scrollToAbout = () => {
 
             {/* Profile Picture */}
             <div className="relative mx-auto bg-gradient-to-b from-teal-500 rounded-full w-80 h-80 mt-1 overflow-hidden pb-20">
-  <Image 
-    src="/assets/emman.jpg" 
-    layout="fill" 
-    alt="Profile Picture" 
-    objectFit="cover" 
-    objectPosition="top" 
-    className="scale-10"
-  />
-</div>
+              <Image
+                src="/assets/emman.jpg"
+                layout="fill"
+                alt="Profile Picture"
+                objectFit="cover"
+                objectPosition="top"
+                className="scale-10"
+              />
+            </div>
 
-            <button 
-  onClick={scrollToAbout} 
-  className="mt-6 px-6 py-3 bg-blue-600 text-white font-semibold rounded-full shadow-md hover:bg-blue-700 transition flex items-center gap-2 text-center block mx-auto pt-50"
->
-  Learn More 
-  <span className="bg-white text-blue-600 px-3 py-1 rounded-full">→</span>
-</button>
-
+            <button
+              onClick={scrollToAbout}
+              className="mt-6 px-6 py-3 bg-blue-600 text-white font-semibold rounded-full shadow-md hover:bg-blue-700 transition flex items-center gap-2 text-center block mx-auto pt-50"
+            >
+              Learn More
+              <span className="bg-white text-blue-600 px-3 py-1 rounded-full">
+                →
+              </span>
+            </button>
           </section>
         </main>
 
@@ -158,10 +163,23 @@ const scrollToAbout = () => {
             {/* About Me Text */}
             <div className="space-y-6 text-lg leading-relaxed font-sourceCode">
               <p>
-                {`Hello! I'm <span className="font-bold bg-blue-800 text-white p-1 rounded">Emmanuel Santos III</span>, a passionate web developer dedicated to crafting user-friendly, modern web applications. With expertise in both front-end and back-end development, I enjoy turning creative ideas into functional and visually appealing digital experiences. My goal is to build solutions that are <span className="font-bold bg-blue-800 text-white p-1 rounded">efficient, responsive, and accessible</span> to all users.`}
+                {`Hello! I'm `}
+                <span className="font-bold bg-blue-800 text-white p-1 rounded">
+                  Emmanuel Santos III
+                </span>
+                {`, a passionate web developer dedicated to crafting user-friendly, modern web applications. With expertise in both front-end and back-end development, I enjoy turning creative ideas into functional and visually appealing digital experiences. My goal is to build solutions that are`}
+                <span className="font-bold bg-blue-800 text-white p-1 rounded">
+                  efficient, responsive, and accessible
+                </span>
+                {` to all users.`}
               </p>
               <p>
-                {`When I'm not coding, I love <span className="font-bold bg-blue-800 text-white p-1 rounded">exploring new technologies, contributing to open-source projects</span>, and continuously improving my skills. I'm always open to exciting opportunities and collaborations, so feel free to connect with me!`}
+                {`When I'm not coding, I love`}
+                <span className="font-bold bg-blue-800 text-white p-1 rounded">
+                  exploring new technologies, contributing to open-source
+                  projects
+                </span>
+                {`, and continuously improving my skills. I'm always open to exciting opportunities and collaborations, so feel free to connect with me!`}
               </p>
             </div>
             {/* Gallery */}
@@ -216,16 +234,15 @@ const scrollToAbout = () => {
           </h1>
 
           <div className="flex flex-wrap justify-center gap-10 w-full max-w-6xl">
-            {/* Service Card */}
             {[
               {
                 title: "Front-End Development",
-                icon: "🎨",
+                icon: "/assets/front-end.png", // Replace with actual image path
                 services: ["UI/UX Implementation", "Performance Optimization"],
               },
               {
                 title: "Website Development",
-                icon: "🌐",
+                icon: "/assets/app-development.png", // Replace with actual image path
                 services: [
                   "Custom Website Design & Development",
                   "Responsive Web Design",
@@ -235,20 +252,27 @@ const scrollToAbout = () => {
                   "Landing Pages",
                   "Web Consultation",
                 ],
-              }, 
+              },
               {
                 title: "Back-End Development",
-                icon: "🖥️",
+                icon: "/assets/back-end.png", // Replace with actual image path
                 services: ["Database Integration", "API Development"],
               },
-              
             ].map((service, index) => (
               <div
                 key={index}
                 className="relative group overflow-hidden text-center shadow-lg p-8 rounded-xl bg-white w-full sm:w-[80%] md:w-[45%] lg:w-[30%] hover:scale-105 transition-transform duration-300"
               >
-                {/* Icon */}
-                <div className="text-5xl mb-4">{service.icon}</div>
+                {/* Icon as Image */}
+                <div className="mb-4 flex justify-center">
+                  <Image
+                    src={service.icon}
+                    alt={service.title}
+                    width={80} // Adjust the size as needed
+                    height={80}
+                    className="object-contain"
+                  />
+                </div>
 
                 {/* Title */}
                 <h6 className="font-poppins text-xl font-semibold text-gray-800">
@@ -282,22 +306,22 @@ const scrollToAbout = () => {
           <div className="flex flex-wrap justify-center gap-8 w-full max-w-5xl">
             {/* Skill Item */}
             {[
-              { name: "HTML", level: "90%", logo: "/assets/html.png" },
-              { name: "CSS", level: "85%", logo: "/assets/css-3.png" },
+              { name: "HTML", level: "40%", logo: "/assets/html.png" },
+              { name: "CSS", level: "40%", logo: "/assets/css-3.png" },
               {
                 name: "Bootstrap",
-                level: "80%",
+                level: "40%",
                 logo: "/assets/bootstrap.png",
               },
-              { name: "JavaScript", level: "75%", logo: "/assets/js.png" },
-              { name: "PHP", level: "80%", logo: "/assets/php.png" },
-              { name: "MySQL", level: "85%", logo: "/assets/mysql.png" },
-              { name: "Git", level: "80%", logo: "/assets/git.png" },
-              { name: "VSCode", level: "85%", logo: "/assets/vscode.png" },
-              { name: "Python", level: "75%", logo: "/assets/python.png" },
-              { name: "GitHub", level: "70%", logo: "/assets/Github.png" },
-              { name: "Swift", level: "60%", logo: "/assets/swift.png" },
-              { name: "Django", level: "65%", logo: "/assets/Django.png" },
+              { name: "JavaScript", level: "20%", logo: "/assets/js.png" },
+              { name: "PHP", level: "40%", logo: "/assets/php.png" },
+              { name: "MySQL", level: "40%", logo: "/assets/mysql.png" },
+              { name: "Git", level: "20%", logo: "/assets/git.png" },
+              { name: "VSCode", level: "30%", logo: "/assets/vscode.png" },
+              { name: "Python", level: "30%", logo: "/assets/python.png" },
+              { name: "GitHub", level: "20%", logo: "/assets/Github.png" },
+              { name: "Swift", level: "20%", logo: "/assets/swift.png" },
+              { name: "Django", level: "20%", logo: "/assets/Django.png" },
             ].map((skill, index) => (
               <div
                 key={index}
@@ -309,6 +333,8 @@ const scrollToAbout = () => {
                     src={skill.logo}
                     alt={`${skill.name} logo`}
                     className="w-full h-full object-contain"
+                    width="50"
+                    height="50"
                   />
                 </div>
 
@@ -351,7 +377,7 @@ const scrollToAbout = () => {
                 link: "#",
               },
               {
-                title: "E-Commerce Store",
+                title: "Medicine Inventory and Patient Information System",
                 image: "https://via.placeholder.com/600x400",
                 description:
                   "An online store with payment integration and admin panel.",
@@ -359,7 +385,31 @@ const scrollToAbout = () => {
                 link: "#",
               },
               {
-                title: "Task Manager App",
+                title: "Thinkerville",
+                image: "https://via.placeholder.com/600x400",
+                description:
+                  "A web app to manage daily tasks with authentication.",
+                tags: ["React", "Firebase", "Tailwind"],
+                link: "#",
+              },
+              {
+                title: "Merbeth - Gym Managment System",
+                image: "https://via.placeholder.com/600x400",
+                description:
+                  "A web app to manage daily tasks with authentication.",
+                tags: ["React", "Firebase", "Tailwind"],
+                link: "#",
+              },
+              {
+                title: "Solid Waste Management",
+                image: "https://via.placeholder.com/600x400",
+                description:
+                  "A web app to manage daily tasks with authentication.",
+                tags: ["React", "Firebase", "Tailwind"],
+                link: "#",
+              },
+              {
+                title: "Senior Citizen Record Managmenet System",
                 image: "https://via.placeholder.com/600x400",
                 description:
                   "A web app to manage daily tasks with authentication.",
@@ -376,6 +426,8 @@ const scrollToAbout = () => {
                   src={project.image}
                   alt={project.title}
                   className="w-full h-56 object-cover transition-transform duration-300 group-hover:scale-105"
+                  width="50"
+                  height="50"
                 />
 
                 {/* Project Info */}
@@ -414,14 +466,19 @@ const scrollToAbout = () => {
         </main>
 
         {/* Contact Me Section */}
-        <main id="contact" className="flex flex-col items-center justify-center min-h-screen px-6 py-10">
+        <main
+          id="contact"
+          className="flex flex-col items-center justify-center min-h-screen px-6 py-10"
+        >
           {/* Introduction */}
           <section className="text-center mb-10">
             <h6 className="font-poppins text-3xl font-semibold">
               {"Let's Build Something Great Together - Contact Me"}
             </h6>
             <p className="font-sourceCode mt-4 max-w-2xl mx-auto">
-              {"I'd love to hear from you! Whether you have a project in mind, need a web solution, or just want to say hi, feel free to drop me a message."}
+              {
+                "I'd love to hear from you! Whether you have a project in mind, need a web solution, or just want to say hi, feel free to drop me a message."
+              }
             </p>
           </section>
 
