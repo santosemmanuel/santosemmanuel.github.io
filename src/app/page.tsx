@@ -16,26 +16,30 @@ export default function Home() {
 
   useEffect(() => {
     if (mounted) {
-      localStorage.setItem("darkMode", darkMode);
+      localStorage.setItem("darkMode", JSON.stringify(darkMode));
     }
   }, [darkMode, mounted]);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const navbarHeight = document.querySelector("nav").offsetHeight;
-      const scrollPosition = window.scrollY;
-      setIsSticky(scrollPosition >= navbarHeight);
-    };
+useEffect(() => {
+  const handleScroll = () => {
+    const navbar = document.querySelector("nav");
+    if (!navbar) return; // Ensure navbar exists
 
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
-  const scrollToAbout = () => {
-    document.getElementById("about").scrollIntoView({ behavior: "smooth" });
+    const navbarHeight = navbar.offsetHeight;
+    const scrollPosition = window.scrollY;
+    setIsSticky(scrollPosition >= navbarHeight);
   };
+
+  window.addEventListener("scroll", handleScroll);
+  return () => window.removeEventListener("scroll", handleScroll);
+}, []);
+
+const scrollToAbout = () => {
+  const aboutSection = document.getElementById("about");
+  if (aboutSection) {
+    aboutSection.scrollIntoView({ behavior: "smooth" });
+  }
+};
 
   if (!mounted) {
     return null;
