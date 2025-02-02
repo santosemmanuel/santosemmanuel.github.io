@@ -154,10 +154,10 @@ export default function Home() {
             {/* About Me Text */}
             <div className="space-y-6 text-lg leading-relaxed font-sourceCode">
               <p>
-                Hello! I'm <span className="font-bold bg-blue-800 text-white p-1 rounded">Emmanuel Santos III</span>, a passionate web developer dedicated to crafting user-friendly, modern web applications. With expertise in both front-end and back-end development, I enjoy turning creative ideas into functional and visually appealing digital experiences. My goal is to build solutions that are <span className="font-bold bg-blue-800 text-white p-1 rounded">efficient, responsive, and accessible</span> to all users.
+                {`Hello! I'm <span className="font-bold bg-blue-800 text-white p-1 rounded">Emmanuel Santos III</span>, a passionate web developer dedicated to crafting user-friendly, modern web applications. With expertise in both front-end and back-end development, I enjoy turning creative ideas into functional and visually appealing digital experiences. My goal is to build solutions that are <span className="font-bold bg-blue-800 text-white p-1 rounded">efficient, responsive, and accessible</span> to all users.`}
               </p>
               <p>
-                When I'm not coding, I love <span className="font-bold bg-blue-800 text-white p-1 rounded">exploring new technologies, contributing to open-source projects</span>, and continuously improving my skills. I'm always open to exciting opportunities and collaborations, so feel free to connect with me!
+                {`When I'm not coding, I love <span className="font-bold bg-blue-800 text-white p-1 rounded">exploring new technologies, contributing to open-source projects</span>, and continuously improving my skills. I'm always open to exciting opportunities and collaborations, so feel free to connect with me!`}
               </p>
             </div>
             {/* Gallery */}
@@ -215,11 +215,6 @@ export default function Home() {
             {/* Service Card */}
             {[
               {
-                title: "Back-End Development",
-                icon: "🖥️",
-                services: ["Database Integration", "API Development"],
-              },
-              {
                 title: "Front-End Development",
                 icon: "🎨",
                 services: ["UI/UX Implementation", "Performance Optimization"],
@@ -236,7 +231,13 @@ export default function Home() {
                   "Landing Pages",
                   "Web Consultation",
                 ],
+              }, 
+              {
+                title: "Back-End Development",
+                icon: "🖥️",
+                services: ["Database Integration", "API Development"],
               },
+              
             ].map((service, index) => (
               <div
                 key={index}
@@ -300,7 +301,7 @@ export default function Home() {
               >
                 {/* Logo */}
                 <div className="w-16 h-16">
-                  <img
+                  <Image
                     src={skill.logo}
                     alt={`${skill.name} logo`}
                     className="w-full h-full object-contain"
@@ -367,7 +368,7 @@ export default function Home() {
                 className="relative group overflow-hidden rounded-xl shadow-lg bg-white"
               >
                 {/* Image */}
-                <img
+                <Image
                   src={project.image}
                   alt={project.title}
                   className="w-full h-56 object-cover transition-transform duration-300 group-hover:scale-105"
@@ -413,12 +414,10 @@ export default function Home() {
           {/* Introduction */}
           <section className="text-center mb-10">
             <h6 className="font-poppins text-3xl font-semibold">
-              Let&apos;s Build Something Great Together - Contact Me
+              {"Let's Build Something Great Together - Contact Me"}
             </h6>
             <p className="font-sourceCode mt-4 max-w-2xl mx-auto">
-              I&apos;d love to hear from you! Whether you have a project in
-              mind, need a web solution, or just want to say hi, feel free to
-              drop me a message.
+              {"I'd love to hear from you! Whether you have a project in mind, need a web solution, or just want to say hi, feel free to drop me a message."}
             </p>
           </section>
 
@@ -431,11 +430,11 @@ export default function Home() {
               </h6>
               <p className="font-sourceCode py-1">Leyte, Philippines</p>
               <p className="font-sourceCode py-1 max-w-md">
-                I&apos;m always excited to work on new projects and turn ideas
+                {`I'm always excited to work on new projects and turn ideas
                 into reality. Whether you’re looking to build a website from
                 scratch, improve your existing platform, or collaborate on
                 something unique, let’s make it happen. Drop me a message, and
-                I’ll get back to you as soon as possible!
+                I’ll get back to you as soon as possible!`}
               </p>
             </div>
 
