@@ -1,9 +1,9 @@
 "use client";
 
 import Navbar from "../components/Navbar";
-import { FaGithub, FaLinkedin, FaCode, FaLaptopCode, FaUserFriends } from "react-icons/fa";
-import { SiLeetcode } from "react-icons/si"
-import { HiOutlineMail } from "react-icons/hi"
+import { FaGithub, FaLinkedin, FaCode } from "react-icons/fa";
+import { SiLeetcode } from "react-icons/si";
+import { HiOutlineMail } from "react-icons/hi";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 // import { motion } from "framer-motion";
@@ -67,143 +67,138 @@ export default function Home() {
 
         {/* Hero Section */}
         <main id="hero">
-  <section className="min-h-screen pt-5 flex flex-col items-center text-center">
-    <div className="p-10">
-      <h2 className="font-poppins text-5xl py-2 font-medium pt-20 dark:text-white">
-        Emmanuel B. Santos III
-      </h2>
-      <h3 className="font-sourceCode py-2 text-2xl dark:text-gray-300">
-        Web Developer
-      </h3>
-      <p className="font-sourceCode text-lg py-5 leading-8 max-w-3xl mx-auto dark:text-gray-400">
-        Crafting bold web solutions that captivate, deliver, and inspire seamless experiences.
-      </p>
+          <section className="min-h-screen pt-5 flex flex-col items-center text-center">
+            <div className="p-10">
+              <h2 className="font-poppins text-5xl py-2 font-medium pt-20 dark:text-white">
+                Emmanuel B. Santos III
+              </h2>
+              <h3 className="font-sourceCode py-2 text-2xl dark:text-gray-300">
+                Web Developer
+              </h3>
+              <p className="font-sourceCode text-lg py-5 leading-8 max-w-3xl mx-auto dark:text-gray-400">
+                Crafting bold web solutions that captivate, deliver, and inspire
+                seamless experiences.
+              </p>
 
-      {/* Social Links */}
-      <div className="text-4xl flex justify-center gap-6 py-3 text-gray-600 dark:text-gray-300">
-        <a
-          href="https://www.linkedin.com/in/YOUR_LINKEDIN"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:text-blue-600 transition"
-        >
-          <FaLinkedin />
-        </a>
-        <a
-          href="https://github.com/YOUR_GITHUB"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:text-gray-900 dark:hover:text-white transition"
-        >
-          <FaGithub />
-        </a>
-        <a
-          href="https://leetcode.com/YOUR_LEETCODE"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:text-orange-500 transition"
-        >
-          <FaCode />
-        </a>
-      </div>
-    </div>
+              {/* Social Links */}
+              <div className="text-4xl flex justify-center gap-6 py-3 text-gray-600 dark:text-gray-300">
+                <a
+                  href="https://www.linkedin.com/in/YOUR_LINKEDIN"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-blue-600 transition"
+                >
+                  <FaLinkedin />
+                </a>
+                <a
+                  href="https://github.com/YOUR_GITHUB"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-gray-900 dark:hover:text-white transition"
+                >
+                  <FaGithub />
+                </a>
+                <a
+                  href="https://leetcode.com/YOUR_LEETCODE"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-orange-500 transition"
+                >
+                  <FaCode />
+                </a>
+              </div>
+            </div>
 
-    {/* Profile Picture */}
-    <div className="relative mx-auto bg-gradient-to-b from-teal-500 rounded-full w-80 h-80 mt-6 overflow-hidden shadow-lg">
-      <Image
-        src="/assets/emman.jpg"
-        layout="fill"
-        alt="Profile Picture"
-        objectFit="cover"
-        objectPosition="top"
-      />
-    </div>
+            {/* Profile Picture */}
+            <div className="relative mx-auto bg-gradient-to-b from-teal-500 rounded-full w-80 h-80 mt-6 overflow-hidden shadow-lg">
+              <Image
+                src="/assets/emman.jpg"
+                layout="fill"
+                alt="Profile Picture"
+                objectFit="cover"
+                objectPosition="top"
+              />
+            </div>
 
-    {/* Learn More Button */}
-    <button
-      onClick={scrollToAbout}
-      className="mt-6 px-6 py-3 bg-blue-600 text-white font-semibold rounded-full shadow-md hover:bg-blue-700 transition flex items-center gap-2 text-center block mx-auto"
-    >
-      Learn More
-      <span className="bg-white text-blue-600 px-3 py-1 rounded-full">
-        →
-      </span>
-    </button>
-  </section>
-</main>
+            {/* Learn More Button */}
+            <button
+              onClick={scrollToAbout}
+              className="mt-6 px-6 py-3 bg-blue-600 text-white font-semibold rounded-full shadow-md hover:bg-blue-700 transition flex items-center gap-2 text-center block mx-auto"
+            >
+              Learn More
+              <span className="bg-white text-blue-600 px-3 py-1 rounded-full">
+                →
+              </span>
+            </button>
+          </section>
+        </main>
+        {/* About Me Section */}
 
         {/* About Me Section */}
         <main
-  id="about"
-  className="flex flex-col items-center justify-center min-h-screen px-8 py-20"
->
-  <h1 className="font-poppins text-4xl font-bold pb-12 text-center dark:text-white">
-    About Me
-  </h1>
+          id="about"
+          className="flex flex-col items-center justify-center min-h-screen px-8 py-20"
+        >
+          <h1 className="font-poppins text-4xl font-bold pb-12 text-center dark:text-white">
+            About Me
+          </h1>
 
-  <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 w-full max-w-6xl">
-    {/* About Me Text */}
-    <div className="space-y-6 text-lg leading-relaxed font-sourceCode dark:text-gray-300">
-      <p>
-        {`Hello! I'm `}
-        <span className="font-bold bg-blue-800 text-white px-2 py-1 rounded">
-          Emmanuel Santos III
-        </span>
-        {`, a passionate web developer dedicated to crafting modern, user-friendly web applications. With expertise in both front-end and back-end development, I love transforming ideas into interactive digital experiences.`}
-      </p>
-      <p>
-        {`I focus on building solutions that are `}
-        <span className="font-bold bg-blue-800 text-white px-2 py-1 rounded">
-          efficient, responsive, and accessible
-        </span>
-        {` to all users.`}
-      </p>
-      <p>
-        {`Beyond coding, I enjoy `}
-        <span className="font-bold bg-blue-800 text-white px-2 py-1 rounded">
-          exploring new technologies, contributing to open-source projects
-        </span>
-        {`, and collaborating with other developers. If you’re looking for someone to bring your vision to life, let's connect!`}
-      </p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 w-full max-w-6xl">
+            {/* Left Column - About Me Text */}
+            <div className="space-y-6 text-lg leading-relaxed font-sourceCode dark:text-gray-300">
+              <p>
+                {`Hello! I'm `}
+                <span className="font-bold bg-blue-800 text-white px-2 py-1 rounded">
+                  Emmanuel Santos III
+                </span>
+                {`, a passionate web developer dedicated to crafting modern, user-friendly web applications. With expertise in both front-end and back-end development, I love transforming ideas into interactive digital experiences.`}
+              </p>
+              <p>
+                {`I focus on building solutions that are `}
+                <span className="font-bold bg-blue-800 text-white px-2 py-1 rounded">
+                  efficient, responsive, and accessible
+                </span>
+                {` to all users.`}
+              </p>
+              <p>
+                {`Beyond coding, I enjoy `}
+                <span className="font-bold bg-blue-800 text-white px-2 py-1 rounded">
+                  exploring new technologies, contributing to open-source
+                  projects
+                </span>
+                {`, and collaborating with other developers. If you’re looking for someone to bring your vision to life, let's connect!`}
+              </p>
+            </div>
 
-      {/* Quick Skills Overview */}
-      <div className="flex gap-6 text-blue-700 dark:text-blue-400 text-2xl pt-4">
-        <div className="flex flex-col items-center">
-          <FaCode />
-          <span className="text-sm text-gray-700 dark:text-gray-400">Full-Stack</span>
-        </div>
-        <div className="flex flex-col items-center">
-          <FaLaptopCode />
-          <span className="text-sm text-gray-700 dark:text-gray-400">Web Dev</span>
-        </div>
-        <div className="flex flex-col items-center">
-          <FaUserFriends />
-          <span className="text-sm text-gray-700 dark:text-gray-400">Collaboration</span>
-        </div>
-      </div>
-    </div>
+            {/* Right Column - Animated Gallery */}
+            <div className="relative grid grid-cols-2 gap-4">
+              {[
+                "CS50 - Emmanuel Santos III.jpg",
+                "CertificateOfCompletion_Learning C.jpg",
+                "certificate programming beginners using Python.jpg",
+                "Coursera D7MSA2QN64R8.jpg",
+              ].map((cert, index) => (
+                <div
+                  key={index}
+                  className="relative overflow-hidden rounded-xl shadow-lg transition-all duration-300 ease-in-out 
+            hover:col-span-2 hover:row-span-2 hover:z-10 hover:w-full hover:h-full"
+                >
+                  {/* Other images fade out */}
+                  <div className="absolute inset-0 transition-opacity duration-300 ease-in-out opacity-100 hover:opacity-0"></div>
 
-    {/* Animated Gallery */}
-    <div className="grid grid-cols-2 gap-6">
-      {["certificate1", "certificate2", "certificate3", "certificate4"].map(
-        (cert, index) => (
-          <div
-            key={index}
-            className="overflow-hidden rounded-xl shadow-lg transform transition duration-300 hover:scale-105"
-          >
-            <Image
-              src={`/assets/${cert}.png`}
-              width={300}
-              height={200}
-              alt={`Certificate ${index + 1}`}
-              className="w-full h-auto object-cover"
-            />
+                  {/* Expanding Image */}
+                  <Image
+                    src={`/assets/${cert}`}
+                    width={300}
+                    height={200}
+                    alt={`Certificate ${index + 1}`}
+                    className="w-full h-full object-cover transition-all duration-300 ease-in-out hover:scale-105"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
-        )
-      )}
-    </div>
-  </div>
-</main>
+        </main>
 
         {/* Experiences Section */}
         <main
@@ -233,7 +228,7 @@ export default function Home() {
                   "PHP",
                   "Bootstrap",
                   "MySQL",
-                  "Jquery"
+                  "Jquery",
                 ],
               },
               {
@@ -242,7 +237,14 @@ export default function Home() {
                 duration: "2017-2018",
                 description:
                   "Full Stack Web development and maintain companies applications",
-                skills: ["Bootstrap", "HTML", "CSS", "PHP(DAO, MVC)", "Javascript", "Jquery"],
+                skills: [
+                  "Bootstrap",
+                  "HTML",
+                  "CSS",
+                  "PHP(DAO, MVC)",
+                  "Javascript",
+                  "Jquery",
+                ],
               },
             ].map((exp, index) => (
               <div
@@ -610,53 +612,55 @@ export default function Home() {
         </main>
 
         <footer
-  className={`text-center py-6 mt-12 border-t ${
-    darkMode ? "border-gray-700 text-gray-300" : "border-gray-300 text-gray-800"
-  }`}
->
-  <p className="font-sourceCode">
-    &copy; {new Date().getFullYear()} Emmanuel Santos III. All Rights Reserved.
-  </p>
+          className={`text-center py-6 mt-12 border-t ${
+            darkMode
+              ? "border-gray-700 text-gray-300"
+              : "border-gray-300 text-gray-800"
+          }`}
+        >
+          <p className="font-sourceCode">
+            &copy; {new Date().getFullYear()} Emmanuel Santos III. All Rights
+            Reserved.
+          </p>
 
-  {/* Social Links */}
-  <div className="flex justify-center space-x-6 mt-3 text-2xl">
-    <a
-      href="https://linkedin.com/in/yourprofile"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="hover:text-blue-600 transition"
-      aria-label="LinkedIn"
-    >
-      <FaLinkedin />
-    </a>
-    <a
-      href="https://github.com/yourgithub"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="hover:text-gray-600 transition"
-      aria-label="GitHub"
-    >
-      <FaGithub />
-    </a>
-    <a
-      href="https://leetcode.com/yourleetcode"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="hover:text-orange-500 transition"
-      aria-label="LeetCode"
-    >
-      <SiLeetcode />
-    </a>
-    <a
-      href="mailto:your-email@example.com"
-      className="hover:text-red-600 transition"
-      aria-label="Email"
-    >
-      <HiOutlineMail />
-    </a>
-  </div>
-</footer>
-
+          {/* Social Links */}
+          <div className="flex justify-center space-x-6 mt-3 text-2xl">
+            <a
+              href="https://linkedin.com/in/yourprofile"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-blue-600 transition"
+              aria-label="LinkedIn"
+            >
+              <FaLinkedin />
+            </a>
+            <a
+              href="https://github.com/yourgithub"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-gray-600 transition"
+              aria-label="GitHub"
+            >
+              <FaGithub />
+            </a>
+            <a
+              href="https://leetcode.com/yourleetcode"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-orange-500 transition"
+              aria-label="LeetCode"
+            >
+              <SiLeetcode />
+            </a>
+            <a
+              href="mailto:your-email@example.com"
+              className="hover:text-red-600 transition"
+              aria-label="Email"
+            >
+              <HiOutlineMail />
+            </a>
+          </div>
+        </footer>
       </div>
     </>
   );
