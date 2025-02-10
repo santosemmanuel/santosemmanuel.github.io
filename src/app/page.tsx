@@ -419,113 +419,113 @@ export default function Home() {
 
         {/* Projects Section */}
         <main
-          id="projects"
-          className="flex flex-col items-center justify-center min-h-screen px-6 py-10"
-        >
-          <h1 className="font-poppins text-4xl font-bold pb-10 text-center">
-            Projects
-          </h1>
+  id="projects"
+  className="flex flex-col items-center justify-center min-h-screen px-6 py-10"
+>
+  <h1 className="font-poppins text-4xl font-bold pb-10 text-center">
+    Projects
+  </h1>
 
-          <div className="grid gap-8 w-full max-w-screen-xl grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-            {/* Project Card */}
-            {[
-              {
-                title: "Portfolio Website",
-                image: "https://via.placeholder.com/600x400",
-                description:
-                  "A personal portfolio website showcasing my skills and projects.",
-                tags: ["HTML", "CSS", "JavaScript", ""],
-                link: "#",
-              },
-              {
-                title: "Medicine Inventory and Patient Information System",
-                image: "https://via.placeholder.com/600x400",
-                description:
-                  "A web-based school clinic management system designed to streamline medicine inventory tracking and patient information management, ensuring efficient healthcare services for students.",
-                tags: ["PHP", "Bootstrap", "HTML", "JQuery"],
-                link: "#",
-              },
-              {
-                title: "Thinkerville (quizzer)",
-                image: "https://via.placeholder.com/600x400",
-                description:
-                  "A web app to test your knowledge in taking the CSC exam.",
-                tags: ["Bootstrap", "JavaScript"],
-                link: "#",
-              },
-              {
-                title: "Merbeth - Gym Management System",
-                image: "https://via.placeholder.com/600x400",
-                description: "Personal Gym Management",
-                tags: ["JavaScript", "PHP", "CSS", "HTML"],
-                link: "#",
-              },
-              {
-                title: "Solid Waste Management",
-                image: "https://via.placeholder.com/600x400",
-                description:
-                  "A web app to manage daily tasks with authentication.",
-                tags: ["CodeIgniter", "PHP", "JQuery", "CSS"],
-                link: "#",
-              },
-              {
-                title: "Centralized Data Repository System",
-                image: "https://via.placeholder.com/600x400",
-                description:
-                  "A web-based centralized data repository system for university campuses, designed to efficiently store, manage, and access institutional data in a secure and organized manner.",
-                tags: ["PHP(OOP, MVC)", "JQuery", "Bootstrap"],
-                link: "#",
-              },
-            ].map((project, index) => (
-              <div
-                key={index}
-                className="relative group overflow-hidden rounded-xl shadow-lg bg-white flex flex-col"
-              >
-                {/* Image */}
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-56 object-cover transition-transform duration-300 group-hover:scale-105"
-                  width="50"
-                  height="50"
-                />
+  <div className="grid gap-8 w-full max-w-screen-xl grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+    {[
+      {
+        title: "Portfolio Website",
+        image: "/assets/Portfolio_website.png",
+        description:
+          "A personal portfolio website showcasing my skills and projects.",
+        tags: ["HTML", "CSS", "JavaScript"],
+        link: "https://github.com/santosemmanuel/santosemmanuel.github.io",
+      },
+      {
+        title: "Medicine Inventory and Patient Information System",
+        image: "/assets/MIPIS.png",
+        description:
+          "A web-based school clinic management system designed to streamline medicine inventory tracking and patient information management, ensuring efficient healthcare services for students.",
+        tags: ["PHP", "Bootstrap", "HTML", "JQuery"],
+        link: "https://github.com/santosemmanuel/MIPIS",
+      },
+      {
+        title: "Thinkrville (quizzer)",
+        image: "/assets/thinkerville.png",
+        description:
+          "A web app to test your knowledge in taking the CSC exam.",
+        tags: ["Bootstrap", "JavaScript"],
+        link: "https://github.com/santosemmanuel/thinkerville",
+      },
+      {
+        title: "Merbeth - Gym Management System",
+        image: "/assets/merbeth.jpg",
+        description: "Personal Gym Management",
+        tags: ["JavaScript", "PHP", "CSS", "HTML"],
+        link: "https://github.com/santosemmanuel/Merbeth",
+      },
+      {
+        title: "Solid Waste Management",
+        image: "/assets/solid_waste.jpg",
+        description: "A web app to manage daily tasks with authentication.",
+        tags: ["CodeIgniter", "PHP", "JQuery", "CSS"],
+        link: "https://github.com/santosemmanuel/Solidwaste_CI",
+      },
+      {
+        title: "Centralized Data Repository System",
+        image: "/assets/cdrs.png",
+        description:
+          "A web-based centralized data repository system for university campuses, designed to efficiently store, manage, and access institutional data in a secure and organized manner.",
+        tags: ["PHP(OOP, MVC)", "JQuery", "Bootstrap"],
+        link: "https://github.com/santosemmanuel/CDRS",
+      },
+    ].map((project, index) => (
+      <div
+        key={index}
+        className="relative group overflow-hidden rounded-xl shadow-lg bg-white flex flex-col"
+      >
+        {/* Image */}
+        <Image
+          src={project.image}
+          alt={project.title}
+          width={600}
+          height={400}
+          unoptimized
+          className="w-full h-56 object-cover transition-transform duration-300 group-hover:scale-105"
+        />
 
-                {/* Project Info */}
-                <div className="p-6 flex flex-col flex-grow justify-between">
-                  <div>
-                    <h3 className="font-poppins text-xl font-semibold text-gray-800">
-                      {project.title}
-                    </h3>
-                    <p className="text-gray-600 text-sm mt-2">
-                      {project.description}
-                    </p>
+        {/* Project Info */}
+        <div className="p-6 flex flex-col flex-grow justify-between">
+          <div>
+            <h3 className="font-poppins text-xl font-semibold text-gray-800">
+              {project.title}
+            </h3>
+            <p className="text-gray-600 text-sm mt-2">
+              {project.description}
+            </p>
 
-                    {/* Tags */}
-                    <div className="flex flex-wrap gap-2 mt-3">
-                      {project.tags.map((tag, i) => (
-                        <span
-                          key={i}
-                          className="bg-blue-100 text-blue-600 text-xs px-3 py-1 rounded-full"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* View Project Button (Pinned to Bottom) */}
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    className="inline-block mt-4 px-4 py-2 text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition self-start"
-                  >
-                    View Project
-                  </a>
-                </div>
-              </div>
-            ))}
+            {/* Tags */}
+            <div className="flex flex-wrap gap-2 mt-3">
+              {project.tags.map((tag, i) => (
+                <span
+                  key={i}
+                  className="bg-blue-100 text-blue-600 text-xs px-3 py-1 rounded-full"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
           </div>
-        </main>
+
+          {/* View Project Button */}
+          <a
+            href={project.link}
+            target="_blank"
+            className="inline-block mt-4 px-4 py-2 text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition self-start"
+          >
+            View Project
+          </a>
+        </div>
+      </div>
+    ))}
+  </div>
+</main>
+
 
         {/* Contact Me Section */}
         <main
